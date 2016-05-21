@@ -26,9 +26,9 @@
         <td><%= product.mclass %></td>
         <td><%= product.is_selled %></td>
         <td><%= product.is_direct %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [product.category,product], class:'btn btn-default' %></td>
+        <td><%= link_to 'Edit', edit_category_product_path(product.category,product), class:'btn btn-default' %></td>
+        <td><%= link_to 'Destroy', [product.category,product], method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_category_product_path, class: 'btn btn-default' %>
