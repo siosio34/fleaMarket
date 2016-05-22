@@ -1,39 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Products</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Number</th>
-      <th>Mclass</th>
-      <th>Is selled</th>
-      <th>Is direct</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="'gallery"></div>
+<h1>판매 목록</h1>
     <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= product.price %></td>
-        <td><%= product.number %></td>
-        <td><%= product.mclass %></td>
-        <td><%= product.is_selled %></td>
-        <td><%= product.is_direct %></td>
-        <td><%= link_to 'Show', [product.category,product], class:'btn btn-default' %></td>
-        <td><%= link_to 'Edit', edit_category_product_path(product.category,product), class:'btn btn-default' %></td>
-        <td><%= link_to 'Destroy', [product.category,product], method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %></td>
-      </tr>
+      <div class='col-lg-3 col-md-3 col-xs-4  picture'>
+        <div class='image'><%= link_to(image_tag(product.picture_url(:thumb)), [product.category, product]) if product.picture? %></div>
+        <div class='title'><%= product.name %></div>
+        <div class='content'><%= product.description %></div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
+</div>
 <br>
 
 <%= link_to 'New Product', new_category_product_path, class: 'btn btn-default' %>
+

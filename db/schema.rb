@@ -30,13 +30,13 @@ ActiveRecord::Schema.define(version: 20160521135125) do
   create_table "messages", force: :cascade do |t|
     t.text     "body"
     t.integer  "conversation_id"
-    t.integer  "user_id"
+    t.integer  "users_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+  add_index "messages", ["users_id"], name: "index_messages_on_users_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
